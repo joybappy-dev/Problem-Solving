@@ -12,7 +12,7 @@ const countVowels = (string) => {
   const vowels = "aeiou";
   let vowelsCount = 0;
   for (let i of string) {
-    if (vowels.includes(i.toLowercase())) {
+    if (vowels.includes(i.toLowerCase())) {
       vowelsCount++;
     }
   }
@@ -112,4 +112,4 @@ const pingPongNumbers = () => {
     console.log(i);
   }
 };
-pingPongNumbers();
+// pingPongNumbers();
