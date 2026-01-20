@@ -12,18 +12,27 @@ const countVowels = (string) => {
   const vowels = "aeiou";
   let vowelsCount = 0;
   for (let i of string) {
-    if (vowels.includes(i)) {
+    if (vowels.includes(i.toLowercase())) {
       vowelsCount++;
     }
   }
   return vowelsCount;
 };
 
-// (problem-3)
+// (problem-3) if a string is a palindrome
+const checkPalindrome = (yourString) => {
+  const characters = yourString.split("");
+  const reversedString = characters.reverse().join("");
+  let ifPalindrome = false;
+  if (reversedString === yourString) {
+    ifPalindrome = true;
+  }
+  return ifPalindrome;
+};
 
 // (problem-4) find largest number in array
 const findLargestNumber = (arrayOfNumber) => {
-  let largest = 0;
+  let largest = arrayOfNumber[0];
   for (let i of arrayOfNumber) {
     if (i > largest) {
       largest = i;
@@ -63,7 +72,7 @@ const findEvenNumbers = (yourArray) => {
   return evenNumbers;
 };
 
-// (problem-7) capitalize first letter of each word
+// (problem-8) capitalize first letter of each word
 const capitalizeFirstLetter = (yourString) => {
   const words = yourString.split(" ");
   let newSentence = "";
@@ -72,6 +81,35 @@ const capitalizeFirstLetter = (yourString) => {
     const capitalizedWord = firstLetter + word.slice(1);
     newSentence = newSentence + " " + capitalizedWord;
   }
-  return newSentence;
+  return newSentence.trim();
 };
 
+// (problem-9) find factorial of a number
+const findFactorial = (number) => {
+  let factorial = 1;
+  if (number < 0) {
+    return "factorial is not possible with negative number";
+  }
+  for (let i = 1; i <= number; i++) {
+    factorial *= i;
+  }
+  return factorial;
+};
+
+// (problem-10) print numbers from 1 to 20 print ping pong for 3 and 5
+const pingPongNumbers = () => {
+  for (let i = 1; i <= 20; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("Ping Pong");
+      continue;
+    } else if (i % 3 === 0) {
+      console.log("Ping");
+      continue;
+    } else if (i % 5 === 0) {
+      console.log("Pong");
+      continue;
+    }
+    console.log(i);
+  }
+};
+pingPongNumbers();
